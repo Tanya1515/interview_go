@@ -5,6 +5,9 @@ import (
 	"testing"
 )
 
+// В данном случае не происходит дополнительной аллокации и копирования,
+// поскольку применяется оптимизация: string to slice coversion optimized
+// - если срез []byte используется только для чтения и не модифицируется.
 func rangeWithoutAllocation() {
 	var str = "world"
 	for range []byte(str) { // no allocation with copy

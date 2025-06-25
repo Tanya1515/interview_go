@@ -5,6 +5,10 @@ import (
 	"unsafe"
 )
 
+// Здесь представлена обратная операция по конвертации
+// строки в срез. Здесь аналогично преобразования происходят
+// при помощи пакета unsafe.
+
 // go test -bench=. -benchmem comparison_test.go
 
 func Convert(str string) []byte {
