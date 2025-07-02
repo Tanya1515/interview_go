@@ -11,9 +11,9 @@ func (d Data) Print() {
 func main() {
 	var data Data
 
-	data.Print()
-	(&data).Print()
+	data.Print()    // data
+	(&data).Print() // data
 
-	(Data).Print(data)
-	(*Data).Print(&data)
+	(Data).Print(data)   // data
+	(*Data).Print(&data) // data
 }

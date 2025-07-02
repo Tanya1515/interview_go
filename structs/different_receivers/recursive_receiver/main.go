@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// Здесь значение изменится, поскольку мы
+// работаем с указателем на вложеннию структуру
+
 type account struct {
 	balance int
 }
@@ -20,5 +23,5 @@ func main() {
 	}
 
 	c.add(100)
-	fmt.Println(c.account.balance)
+	fmt.Println(c.account.balance) // 100
 }
