@@ -6,9 +6,9 @@ import (
 )
 
 func ReadFile(filename string) error {
-	var err *os.PathError
+	var err *os.PathError // здесь указатель выставлен в nil
 	if filename == "" {
-		return err
+		return err // itab(no nil)/data(nil), поскольку здесь скрывается тип ошибки.
 	}
 
 	// reading...
@@ -16,15 +16,17 @@ func ReadFile(filename string) error {
 }
 
 func main() {
+	// возвращает ошибку в случае проблем с чтением
 	err := ReadFile("")
 	if err != nil {
-		fmt.Println("error")
+		// При запуске задачи попадем в это условие, поскольку
+		fmt.Println("error") // error
 	} else {
 		fmt.Println("nil")
 	}
 
-	fmt.Println("value of err: ", err)
-	fmt.Printf("type of err: %T\n", err)
-	fmt.Println("(err == nil): ", err == nil)
+	fmt.Println("value of err: ", err)        // value of err: <nil>
+	fmt.Printf("type of err: %T\n", err)      // type of err: *fs.PathError
+	fmt.Println("(err == nil): ", err == nil) // (err == nil): false
 
 }

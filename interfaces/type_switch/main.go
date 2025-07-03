@@ -17,6 +17,14 @@ func (t *thing) bar() {}
 var i foobarer = &thing{}
 
 func main() {
+	// Здесь type assetion успешно пройдет, как для
+	// fooer, barer, foobarer, поскольку у типа thing
+	// есть все необходимые методы.
+
+	// При этом будет выбрана ветка, которая
+	// располагается первой, даже если все остальные
+	// ветки в true.
+
 	switch v := i.(type) {
 	case fooer:
 		fmt.Println("fooer:", v)
