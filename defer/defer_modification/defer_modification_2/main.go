@@ -8,7 +8,7 @@ func Modify(value int) int {
 		result += value
 	}()
 
-	return value + value
+	return value + value // 10
 }
 
 func main() {
