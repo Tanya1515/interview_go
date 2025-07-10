@@ -20,6 +20,9 @@ func main() {
 	case DatabaseError:
 		fmt.Println(err.Error())
 	default:
+		// Здесь мы выйдем в дефолт, поскольку мы только лишь обернули ошибку,
+		// но ее тип не DatabaseError.
+
 		fmt.Println("unknown error")
 	}
 

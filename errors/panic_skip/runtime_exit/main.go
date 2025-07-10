@@ -5,6 +5,9 @@ import (
 	"runtime"
 )
 
+// Даже просто при завершении работы горутины, без обработки паники
+// defer тоже отработает.
+
 func process() {
 	defer func() {
 		recover()

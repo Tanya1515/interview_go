@@ -5,6 +5,10 @@ import (
 	"fmt"
 )
 
+// Для того, чтобы проверить, относится ли значение обернутой
+// ошибки к определенному значению - нужно использовать errors.Is().
+// Эта функция рекурсивно разворачивает ошибку и проверяет ошибку.
+
 var ErrDatabaseProblem = errors.New("database problem")
 
 func GetDataFromDB() error {

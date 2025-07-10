@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Здесь же при вызове os.Exit defer работать не будет.
 func process() {
 	defer func() {
 		recover()
