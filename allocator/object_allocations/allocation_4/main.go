@@ -5,12 +5,14 @@ package main
 // go build -gcflags '-l -m'
 
 func createPointer() *int {
+	// heap, поскольку это значение используется за пределами функции createPointer
 	value2 := new(int)
 	return value2
 }
 
 func main() {
-	value1 := new(int) // stack
+	// stack, поскольку за пределами функции никто не будет ссылаться на эту переменную
+	value1 := new(int)
 	_ = value1
 
 	value2 := createPointer() // heap
