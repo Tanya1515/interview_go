@@ -26,7 +26,7 @@ func process() {
 		 в отложенном вызове, то в функции
 		 окажется последнее вызванное значение
 
-			defer func(status) {
+			defer func() {
 				notify(status)
 			}()
 

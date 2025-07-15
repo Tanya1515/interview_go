@@ -12,5 +12,5 @@ func Modify(value int) int {
 }
 
 func main() {
-	fmt.Println(Modify(5))
+	fmt.Println(Modify(5)) // 10
 }

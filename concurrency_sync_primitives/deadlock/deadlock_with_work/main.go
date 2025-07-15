@@ -19,6 +19,11 @@ func normalizeResources(lhs, rhs *sync.Mutex) {
 	lhs.Unlock()
 }
 
+// Стоит отметить, что runtime golang не всегда сможет определить deadlock.
+// Причем здесь как только будет deadlock из-за некорректного порядка передачи
+// mutex-ов в функции в разных горутинах, просто запустится функция, которая будет
+// тикать, но самой ошибки не будет (будет работать wg.Wait()).
+
 func main() {
 	var mutex1 sync.Mutex
 	var mutex2 sync.Mutex
