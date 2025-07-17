@@ -1,5 +1,7 @@
 package main
 
+// Корректно читать и писать из/в канал можно при помощи select-а.
+
 func tryToReadFromChannel(ch chan string) (string, bool) {
 	select {
 	case value := <-ch:
