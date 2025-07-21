@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// Контексты работают как матрешка: если контекст отменяется, то это влияет только на его детей. 
+
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
@@ -14,6 +16,8 @@ func main() {
 	cancel()
 
 	if ctx.Err() != nil {
-		fmt.Println("canceled")
+		// canceled не будет напечатан, поскольку, если отменяется 
+		// дочерний контекст, то на родительский это никак не будет влиять. 
+		fmt.Println("canceled") 
 	}
 }
